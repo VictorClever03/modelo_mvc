@@ -1,8 +1,12 @@
 {
-    "name": "victor/Refeitorio",
+    "name": "victor/refeitorio",
     "autoload": {
+        "files": [
+            "app/Helpers/Asset.php"
+        ],
         "psr-4": {
             "App\\": "app/"
+           
         }
     },
     "authors": [
@@ -11,5 +15,12 @@
             "email": "clevervictor03@gmail.com"
         }
     ],
-    "require": {}
+    "require": {
+        "balint-horvath/dotenv-php": "^1.0",
+        "william-costa/dot-env": "^0.1.0",
+        "phpmailer/phpmailer": "^6.8",
+        "dompdf/dompdf": "^2.0",
+        "mike42/escpos-php": "^2.2",
+        "coffeecode/router": "^2.0"
+    }
 }

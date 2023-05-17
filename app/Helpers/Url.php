@@ -5,6 +5,6 @@ use Locale;
 
 class Url{
     public static function redireciona($url){
-        header("Location:".URL.$url);
+        header("Location:".URL.DIRECTORY_SEPARATOR.$url);
     }
 }

@@ -3,8 +3,9 @@ namespace App\Libraries;
 
 use Exception;
 use PDO;
-
+// 
 class Conexao{
+
 private $host=DB['HOST'];
 private $port=DB['PORT'];
 private $db=DB['SGBD'];
@@ -19,6 +20,7 @@ private $crud;
         try 
         {
             $this->conn= new \PDO($dbi.$this->dbname,$this->user,$this->pass);
+            $this->conn= new \PDO("mysql:host=localhost;port=3306;dbname="."sistema_estoque","root",""); 
             $this->conn->setAttribute(\PDO::ATTR_PERSISTENT,true);
             $this->conn->setAttribute(\PDO::ATTR_ERRMODE,\PDO::ERRMODE_EXCEPTION);
         } 

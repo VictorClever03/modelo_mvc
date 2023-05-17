@@ -26,6 +26,7 @@ class uploads
     }
     public function imagem(array $imagem,int $tamanho=null,string $pasta=null, string $nome=null )
     {   
+       
         $this->pasta=$pasta??'imagens';
         $this->arquivo=$imagem;
         $this->nome=$nome??pathinfo($this->arquivo['name'],PATHINFO_FILENAME);
@@ -55,7 +56,7 @@ class uploads
     }
     private function criarpasta()
     {
-        
+       
         if (!file_exists($this->diretorio.DIRECTORY_SEPARATOR.$this->pasta) && !is_dir($this->diretorio.DIRECTORY_SEPARATOR.$this->pasta)) :
             mkdir($this->diretorio.DIRECTORY_SEPARATOR.$this->pasta, 0777);
         endif;
@@ -71,12 +72,18 @@ class uploads
     }
     private function moverimagem()
     {
+        
         if(move_uploaded_file($this->arquivo['tmp_name'],$this->diretorio.DIRECTORY_SEPARATOR.$this->pasta.DIRECTORY_SEPARATOR.$this->nome)):
             $this->exito= $this->nome;
             $this->erro=false;
+
+            
+        
+            $_SESSION['path']=$this->diretorio.DIRECTORY_SEPARATOR.$this->pasta.DIRECTORY_SEPARATOR.$this->nome;
         else:
             $this->exito=false;
             $this->erro="Erro ao mover a imagem";
         endif;
+        
     }
 }

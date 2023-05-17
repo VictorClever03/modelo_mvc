@@ -6,12 +6,31 @@ use App\Helpers\Sessao;
 use App\Helpers\Url;
 use App\Libraries\Controller;
 
-class Home extends Controller
+class  Home  extends Controller
 {
-    public function index(){
-        $page = 'php';
-        
-    $this->view('layouts/app',compact('page'));
-        
-    }
+  private $Food;
+  public function __construct()
+  {
+   
+    // $this->Food = $this->model("client\Home");
+  }
+  public function index($id=null)
+  {
+    // if (Sessao::nivel2()) : 
+    //   Url::redireciona('client');
+    // endif;
+    // echo "oit";
+    // $allFood = $this->Food->getFood();
+    // $refresh = $this->Food->getRefrigerante();
+    // var_dump($refresh);
+    // exit;
+
+var_dump($id);
+    $file = 'homepage';
+    return $this->view('layouts/client/app', compact('file'));
+  }
+  public function about()
+  {
+     echo "ABOUT";
+  }
 }
